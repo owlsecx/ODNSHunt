@@ -18,13 +18,18 @@
 
 ## 📌 Overview
 
-Fast DNS Subdomain Enumerator
+ODNSHunt is a fast multi-threaded DNS subdomain enumerator for authorised reconnaissance and attack-surface mapping. It supports wordlist brute force, optional CT-log harvest, recursive modes, and JSON export so teams can inventory DNS names belonging to domains they own or are contracted to test.
 
 ---
 
 ## ✨ Features
 
-- Fast multi-threaded DNS subdomain enumerator — wordlist brute-force, wildcard filter, CT logs & email-security TXT audit
+- Wordlist-driven subdomain brute force with configurable threads and timeout
+- Custom DNS resolver selection and request delay controls
+- Optional Certificate Transparency harvest via --ct
+- Deep and recursive scan modes for broader discovery
+- JSON output path for downstream tooling
+- Interactive menu or fully non-interactive CLI via --target / --no-menu
 
 ---
 
@@ -38,7 +43,10 @@ Fast DNS Subdomain Enumerator
 ## 🚀 Usage
 
 ```bash
-./ODNSHunt
+./ODNSHunt -t example.com -w wordlist.txt --threads 50
+./ODNSHunt -t example.com --ct --output results.json
+./ODNSHunt -t example.com --deep --server 1.1.1.1 --no-menu
+./ODNSHunt --help
 ```
 
 ---
